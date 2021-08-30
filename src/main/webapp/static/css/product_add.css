@@ -1,0 +1,11 @@
+.col-md-12 input,
+.col-md-12 textarea {
+    width: 100%;
+}
+
+.col-md-4 {
+    margin-top: 0;
+}
+.col-md-4 select {
+    width: 100%;
+}

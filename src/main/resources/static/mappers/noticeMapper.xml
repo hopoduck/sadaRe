@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.project.sadare.notice.NoticeMapper">
+	<resultMap type = "com.project.sadare.notice.Notice" id="Notice">
+		<result property="notice_num" column="notice_num"/>
+		<result property="notice_title" column="notice_title"/>
+		<result property="notice_content" column="notice_content"/>
+		<result property="notice_date" column="notice_date" />
+		<result property="notice_hits" column="notice_hits" />	
+	</resultMap>
+
+	<!-- 공지사항 등록 -->
+	<insert id = "insertNotice" parameterType="com.project.sadare.notice.Notice">
+		insert into sadare_notice
+		VALUES(
+			seq_sadare_notice.nextval,
+			#{notice_title},
+			#{notice_content},
+			sysdate,
+			0
+			)
+	</insert>
+	
+	<!-- 공지사항 전체 출력 -->
+	<select id="selectAllNotice" resultMap="Notice">
+		SELECT	*
+		FROM	sadare_notice
+		ORDER BY notice_num
+	</select>
+
+	<!-- notice_num으로 출력 -->
+	<select id = "selectNotice" parameterType="int" resultMap="Notice">
+		SELECT *
+		FROM	sadare_notice
+		WHERE	notice_num = #{notice_num}
+	</select>
+
+	<!-- 공지사항 수정 -->
+	<update id = "updateNotice" parameterType="com.project.sadare.notice.Notice">
+		UPDATE	sadare_notice
+		SET		notice_title = #{notice_title},
+				notice_content = #{notice_content}
+				notice_num = #{notice_num}
+	</update>
+
+	<!-- 조회수 증가 -->
+	<update id="noticeHits" parameterType="int">
+		UPDATE		sadare_notice
+		SET			notice_hits = notice_hits+1
+		WHERE		notice_num = #{notice_num}
+	</update>
+
+	<!-- 삭제 -->
+	<delete id="deleteNotice" parameterType="int">
+		DELETE
+		FROM	sadare_notice
+		WHERE	notice_num = #{notice_num}
+	
+	</delete>
+
+
+
+</mapper>	

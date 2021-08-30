@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.sadare.member.MemberMapper">
+	<resultMap type="com.project.sadare.member.Member"
+		id="member">
+		<result property="user_id" column="user_id" />
+		<result property="user_pwd" column="user_pwd" />
+		<result property="user_name" column="user_name" />
+		<result property="user_nickname" column="user_nickname" />
+		<result property="user_email" column="user_email" />
+		<result property="user_tel" column="user_tel" />
+		<result property="user_postcode" column="user_postcode" />
+		<result property="user_addr1" column="user_addr1" />
+		<result property="user_addr2" column="user_addr2" />
+		<result property="user_birth" column="user_birth" />
+		<result property="user_regdate" column="user_regdate" />
+		<result property="user_score" column="user_score" />
+		<result property="user_scorecount" column="user_scorecount" />
+		<result property="user_type" column="user_type" />
+	</resultMap>
+	<insert id="insert"
+		parameterType="com.project.sadare.member.Member">
+		insert into sadare_user values(#{user_id}, #{user_pwd},
+		#{user_name}, #{user_nickname}, #{user_email}, #{user_tel},
+		#{user_postcode}, #{user_addr1}, #{user_addr2}, #{user_birth},
+		sysdate, 0, 0, #{user_type})
+	</insert>
+	<select id="select" parameterType="String" resultMap="member">
+		select *
+		from sadare_user where user_id=#{user_id}
+	</select>
+	<update id="update"
+		parameterType="com.project.sadare.member.Member">
+		update sadare_user set user_pwd=#{user_pwd},
+		user_nickname=#{user_nickname}, user_email=#{user_email},
+		user_tel=#{user_tel}, user_postcode=#{user_postcode},
+		user_addr1=#{user_addr1}, user_addr2=#{user_addr2},
+		user_score=#{user_score},
+		user_scorecount=#{user_scorecount} where
+		user_id=#{user_id}
+	</update>
+	<update id="updateUserScore">
+		update sadare_user set user_score=user_score+#{user_score},
+		user_scorecount=user_scorecount+1 where user_id=#{user_id}
+	</update>
+	<delete id="delete" parameterType="String">
+		delete sadare_user where
+		user_id=#{user_id}
+	</delete>
+	<update id="changePwd"
+		parameterType="com.project.sadare.member.Member">
+		update sadare_user set user_pwd=#{user_pwd} where
+		user_id=#{user_id}
+	</update>
+	<select id="list" resultMap="member">
+		select * from sadare_user
+	</select>
+</mapper>

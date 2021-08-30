@@ -1,0 +1,185 @@
+h2 {
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+.product_image {
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    padding: 0 10%;
+    height: 500px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+.product_image img {
+    z-index: -5;
+    min-width: 100% !important;
+    height: 100%;
+}
+/* .prev,
+.next {
+    position: absolute;
+    overflow: hidden;
+    z-index: 5;
+    top: 0px;
+    width: 10%;
+    height: 100%;
+    font-size: 3vw;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s, color 0.5s;
+    color: gainsboro;
+    background-color: none;
+}
+.prev:hover,
+.next:hover {
+    transition: background-color 0.5s, color 0.5s;
+    color: black;
+    background-color: rgba(220, 220, 220, 0.6);
+} */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+}
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    transition: background-color 0.5s, color 0.5s;
+    background-color: rgba(220, 220, 220, 0.6);
+}
+.prev i,
+.next i {
+    text-align: center;
+    vertical-align: middle;
+}
+.prev {
+    left: 0px;
+}
+.next {
+    right: 0px;
+}
+
+.border {
+    background-color: #fff;
+}
+
+div.border.my-4 {
+    margin-bottom: 0 !important;
+}
+
+.carousel.slide {
+    width: 100%;
+}
+
+.product-info .product-price {
+    color: black;
+    font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 1;
+}
+.product-info .user {
+    color: black;
+    font-size: 1.5rem;
+    z-index: 5;
+    vertical-align: middle;
+}
+.product-info .breadcrumb {
+    margin-bottom: 0;
+    color: var(--bs-gray);
+    font-weight: 200;
+}
+.product-info .category a {
+    font-weight: 200;
+    text-decoration: none;
+    color: var(--bs-gray);
+}
+.product-info .category a:hover {
+    font-weight: 600;
+    text-decoration: none;
+    color: rgba(53, 168, 0, 0.6);
+}
+.product-info .add_date {
+    font-weight: 200;
+    color: var(--bs-gray);
+}
+
+.user i {
+    color: #ffe607;
+}
+.user-id a {
+    text-decoration: none;
+    color: rgba(100, 100, 255, 0.6);
+}
+.user-id a:hover {
+    text-decoration: underline;
+    color: rgba(53, 168, 0, 0.6);
+}
+.product-info .content {
+    white-space: pre;
+}
+.product-info .product-data {
+    color: var(--bs-gray);
+    font-weight: 100;
+    font-size: 0.8rem;
+}
+.result {
+    color: red;
+    font-weight: 600;
+}
+
+.add-reply {
+    padding-bottom: 1rem;
+}
+.reply {
+    width: 90%;
+}
+.reply-btn {
+    background-color: #fff;
+}
+
+.seller .reply-content,
+.other .reply-content {
+    font-size: 1.25rem;
+    white-space: pre;
+    vertical-align: middle;
+}
+.reply-writer {
+    opacity: 0.8;
+}
+.seller .reply-menu,
+.seller .reply-content,
+.seller .reply-writer {
+    text-align-last: left;
+    margin-right: 10%;
+}
+.other .reply-menu,
+.other .reply-content,
+.other .reply-writer {
+    text-align: right;
+    margin-left: 10%;
+}
+
+.child-reply-btn {
+    background-color: #fff;
+}
+.child-reply {
+    margin-left: 10%;
+}
+.reply-menu a {
+    cursor: pointer;
+    opacity: 0.5;
+    font-weight: 600;
+}
+.reply-menu a i,
+.reply-menu span {
+    opacity: 0.5;
+}
+.reply-menu a:hover {
+    opacity: 1;
+}
+.deleted {
+    color: var(--bs-gray);
+}

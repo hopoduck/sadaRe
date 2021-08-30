@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.sadare.reply.ReplyMapper">
+	<resultMap type="com.project.sadare.reply.Reply" id="reply">
+		<result property="reply_num" column="reply_num" />
+		<result property="user_id" column="user_id" />
+		<result property="reply_content" column="reply_content" />
+		<result property="product_num" column="product_num" />
+		<result property="reply_date" column="reply_date" />
+		<result property="parent_reply_num" column="parent_reply_num" />
+	</resultMap>
+	<insert id="insert"
+		parameterType="com.project.sadare.reply.Reply">
+		insert into sadare_reply values
+		(seq_sadare_reply.nextval, #{user_id}, #{reply_content},
+		#{product_num}, sysdate, ${parent_reply_num})
+	</insert>
+	<select id="select" resultType="com.project.sadare.reply.Reply">
+		select * from sadare_reply where
+		reply_num=#{reply_num}
+	</select>
+	<select id="selectListByProduct_num" resultMap="reply">
+		select * from
+		sadare_reply where product_num=#{product_num} order by reply_num
+	</select>
+	<select id="selectListByUser_id" parameterType="String"
+		resultMap="reply">
+		select * from
+		sadare_reply where user_id=#{user_id}
+		order by
+		reply_num
+	</select>
+	<select id="selectListByParent_reply_num" resultMap="reply">
+		select *
+		from sadare_reply where parent_reply_num=#{parent_reply_num}
+		order by
+		reply_num
+	</select>
+	<update id="update"
+		parameterType="com.project.sadare.reply.Reply">
+		update sadare_reply set reply_content=#{reply_content}, reply_date=sysdate
+		where reply_num=#{reply_num}
+	</update>
+	<delete id="delete">
+		delete from sadare_reply where
+		reply_num=#{reply_num}
+	</delete>
+	<update id="deleteParent">
+		update sadare_reply set
+		reply_content=null where
+		reply_num=#{reply_num}
+	</update>
+	<select id="selectSeqCurrval" resultType="int">
+		select
+		seq_sadare_reply.currval from dual
+	</select>
+</mapper>

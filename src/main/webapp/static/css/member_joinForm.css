@@ -1,0 +1,32 @@
+@charset "UTF-8";
+.message {
+    color: red;
+}
+.success {
+    color: green;
+}
+.container1 {
+    text-align: left;
+    padding-left: 0px;
+    /* width: 500px; */
+
+    margin: 0 auto;
+}
+/* .postcode {
+    display: block;
+    content: "";
+    clear: both;
+} */
+#user_postcode,
+#postcode {
+    display: inline-block;
+}
+/* #user_email1,
+#user_email2 {
+    display: inline-block;
+} */
+#email_label,
+#addr {
+    width: 100%;
+    display: block;
+}

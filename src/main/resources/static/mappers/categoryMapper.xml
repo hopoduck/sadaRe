@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.sadare.category.CategoryMapper">
+   <resultMap type="com.project.sadare.category.Category" id="categoryResult">
+      <result property="category_num" column="category_num"/>
+      <result property="category_name" column="category_name"/>
+      <result property="parent_category_num" column="parent_category_num"/>
+   </resultMap>
+   
+   <insert id="insertCategory1" parameterType="com.project.sadare.category.Category">
+      INSERT   INTO sadare_category1 
+      VALUES   (seq_sadare_category1.nextval, #{category_name})
+   </insert>
+   
+   <insert id="insertCategory2" parameterType="com.project.sadare.category.Category">
+      INSERT   INTO sadare_category2 
+      VALUES   (seq_sadare_category2.nextval, #{category_name}, #{parent_category_num})
+   </insert>
+   
+   <insert id="insertCategory3" parameterType="com.project.sadare.category.Category">
+      INSERT   INTO sadare_category3 
+      VALUES   (seq_sadare_category3.nextval, #{category_name}, #{parent_category_num})
+   </insert>
+   
+   <select id="selectCategory1" resultMap="categoryResult" parameterType="int">
+      SELECT   	* 
+      FROM   	sadare_category1 
+      WHERE   	category_num = #{category_num}
+      ORDER BY category_num
+   </select>
+   
+   <select id="selectCategory2" resultMap="categoryResult" parameterType="int">
+      SELECT   	* 
+      FROM   	sadare_category2 
+      WHERE   	category_num = #{category_num}
+      ORDER BY category_num
+   </select>
+   
+   <select id="selectCategory3" resultMap="categoryResult" parameterType="int">
+      SELECT   	* 
+      FROM   	sadare_category3 
+      WHERE   	category_num = #{category_num}
+      ORDER BY category_num
+   </select>
+   
+   <select id="selectAllCategory1" resultMap="categoryResult">
+      SELECT   	* 
+      FROM   	sadare_category1
+	  ORDER BY  category_num
+   </select>
+   
+   <select id="selectAllCategory2" resultMap="categoryResult" parameterType="int">
+      SELECT   	* 
+      FROM   	sadare_category2 
+      WHERE   	parent_category_num = #{parent_category_num}
+	  ORDER BY  category_num
+   </select>
+   
+   <select id="selectAllCategory3" resultMap="categoryResult" parameterType="int">
+      SELECT   	* 
+      FROM   	sadare_category3 
+      WHERE   	parent_category_num = #{parent_category_num}
+      ORDER BY  category_num
+   </select>
+   
+   <update id="updateCategory1" parameterType="com.project.sadare.category.Category">
+      UPDATE   	sadare_category1 
+      SET      	category_name = #{category_name} 
+      WHERE   	category_num = #{category_num}
+   </update>
+   
+   <update id="updateCategory2" parameterType="com.project.sadare.category.Category">
+      UPDATE   	sadare_category2 
+      SET      	category_name = #{category_name} 
+      WHERE   	category_num = #{category_num}
+   </update>
+   
+   <update id="updateCategory3" parameterType="com.project.sadare.category.Category">
+      UPDATE   	sadare_category3 
+      SET      	category_name = #{category_name} 
+      WHERE   	category_num = #{category_num}
+   </update>   
+
+   <delete id="deleteCategory1" parameterType="int">
+      DELETE   FROM sadare_category1 
+      WHERE		category_num = #{category_num}
+   </delete>   
+   
+   <delete id="deleteCategory2" parameterType="int">
+      DELETE   FROM sadare_category2 
+      WHERE   	category_num = #{category_num}
+   </delete>   
+   
+   <delete id="deleteCategory3" parameterType="int">
+      DELETE   FROM sadare_category3 
+      WHERE   	category_num = #{category_num}
+   </delete>   
+   
+   <select id="getNum1" resultType="int">
+      SELECT   seq_sadare_category1.currval
+      FROM   	dual
+   </select>
+   
+   <select id="getNum2" resultType="int">
+      SELECT   seq_sadare_category2.currval
+      FROM   	dual
+   </select>
+   
+   <select id="getNum3" resultType="int">
+      SELECT   seq_sadare_category3.currval
+      FROM   	dual
+   </select>
+</mapper>

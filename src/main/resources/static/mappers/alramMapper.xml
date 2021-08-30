@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.sadare.alram.AlramMapper">
+	<resultMap type="com.project.sadare.alram.Alram" id="alram">
+		<result column="alram_num" property="alram_num" />
+		<result column="user_id" property="user_id" />
+		<result property="product_num" column="product_num" />
+		<result column="alram_type" property="alram_type" />
+		<result column="alram_count" property="alram_count" />
+		<result column="alram_add_date" property="alram_add_date" />
+		<result column="alram_href" property="alram_href" />
+		<result column="alram_read" property="alram_read" />
+	</resultMap>
+	<insert id="insert"
+		parameterType="com.project.sadare.alram.Alram">
+		insert into sadare_alram values
+		(seq_sadare_alram.nextval, #{user_id}, #{product_num}, #{alram_type},
+		#{alram_count},
+		sysdate, #{alram_href}, 0)
+	</insert>
+	<select id="select" resultType="com.project.sadare.alram.Alram">
+		select * from sadare_alram where
+		alram_num=#{alram_num}
+	</select>
+	<select id="selectListByUser_id" resultMap="alram">
+		select * from
+		sadare_alram where user_id=#{user_id} order by alram_num
+	</select>
+	<select id="selectUnreadListByUser_id" resultMap="alram">
+		select * from
+		sadare_alram where user_id=#{user_id} and alram_read=0 order by
+		alram_num
+	</select>
+	<select id="selectByAlram"
+		parameterType="com.project.sadare.alram.Alram"
+		resultType="com.project.sadare.alram.Alram">
+		select * from sadare_alram where
+		user_id=#{user_id} and
+		alram_type=#{alram_type} and product_num=#{product_num} and
+		alram_read=0
+	</select>
+	<update id="updateAlramCount">
+		update sadare_alram set alram_count=alram_count+1,
+		alram_add_date=sysdate, alram_read=0 where alram_num=#{alram_num}
+	</update>
+	<update id="updateAlramRead">
+		update sadare_alram set alram_read=1 where
+		alram_num=#{alram_num}
+	</update>
+	<update id="updateAlram"
+		parameterType="com.project.sadare.alram.Alram">
+		update sadare_alram set alram_type=#{alram_type},
+		alram_href=#{alram_href}, alram_add_date=sysdate where
+		alram_num=#{alram_num}
+	</update>
+	<delete id="delete">
+		delete from sadare_alram where alram_num=#{alram_num}
+	</delete>
+	<delete id="deleteByUser_id">
+		delete from sadare_alram where user_id=#{user_id}
+	</delete>
+</mapper>

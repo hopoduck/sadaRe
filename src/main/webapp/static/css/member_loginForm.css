@@ -1,0 +1,15 @@
+#login {
+    width: 100%;
+}
+.container {
+    text-align: center;
+    /* margin-left: 100px; */
+}
+.col-md-5 {
+    margin: 0 auto;
+    /* margin-left: 300px; */
+}
+
+.col-md-5.my-2 input {
+    width: 100%;
+}
