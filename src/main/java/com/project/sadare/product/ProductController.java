@@ -75,7 +75,7 @@ public class ProductController {
 	public String list(Model model, @RequestParam(defaultValue = "1", required = false) int p) {
 		Page page = new Page(p, pService.getProductListSize());
 		page.pageInfo();
-		if (p > page.getMaxPage()) {
+		if (p > page.getMaxPage() && page.getMaxPage() != 0) {
 			return "redirect:/product/list?p=" + page.getMaxPage();
 		} else {
 			List<Product> list = pService.getProductListByLimits(page.getStartList(),
