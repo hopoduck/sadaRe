@@ -49,13 +49,6 @@ public class ReportController {
 		String user_id = (String) session.getAttribute("user_id");
 		if (user_id != null) {
 			ArrayList<Report> list = (ArrayList<Report>) rService.selectAll();
-			ArrayList<Product> plist = new ArrayList<Product>();
-			for (int i = 0; i < list.size(); i++) {
-				Report r = list.get(i);
-				Product p = pService.getProduct(r.getProduct_num());
-				r.setP(p);
-				plist.add(p);
-			}
 			model.addAttribute("list", list);
 		}
 		return "/report/reportList";

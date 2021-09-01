@@ -29,10 +29,8 @@ public class ReplyController {
 	@PostMapping("/reply/edit")
 	public String editReply(Reply r) {
 		String user_id = (String) session.getAttribute("user_id");
-		if (user_id.equals(r.getUser_id())) {
-			r.setUser_id(user_id);
-			rService.editReply(r);
-		}
+		r.setUser_id(user_id);
+		rService.editReply(r);
 		return "redirect:" + request.getHeader("REFERER") + "#reply-" + r.getReply_num();
 	}
 

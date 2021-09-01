@@ -34,3 +34,5 @@ build/
 
 ### GitHub ###
 .env
+
+/src/main/webapp/static/product/

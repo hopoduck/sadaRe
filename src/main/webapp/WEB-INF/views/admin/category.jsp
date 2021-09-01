@@ -83,7 +83,7 @@
             function removeCategory(e) {
                 const btn = $(e.target);
                 const data = btn.parent().attr("id").split("-");
-                const category_type = data[0].substr(1);
+                const category_type = data[0].split("c")[1];
                 const category_num = data[2];
                 $.ajax({
                     type: "post",
@@ -91,7 +91,7 @@
                     data: { category_type, category_num },
                     success: function (response) {
                         const arr = $.parseJSON(response);
-                        let html = makeBtnList(arr);
+                        let html = makeBtnList(arr, category_type);
                         $("#c" + category_type + "-list").html(html);
                     },
                 });

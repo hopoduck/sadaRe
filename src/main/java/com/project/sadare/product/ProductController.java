@@ -103,7 +103,7 @@ public class ProductController {
 				list = pService.getProductListByCategory2_num(c2);
 			} else if (q.equals("c3")) {
 				int c3 = Integer.parseInt(value);
-				list = pService.getProductListByCategory2_num(c3);
+				list = pService.getProductListByCategory3_num(c3);
 			} else if (q.equals("user_id")) {
 				list = pService.getProductListByUser_id(value);
 			}

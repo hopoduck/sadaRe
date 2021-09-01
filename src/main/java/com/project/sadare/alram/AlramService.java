@@ -50,6 +50,7 @@ public class AlramService {
 		if (r.getParent_reply_num() != -1) {
 			System.out.println("댓글의 댓글");
 			Reply pReply = rService.getReply(r.getParent_reply_num());
+			a.setUser_id(pReply.getUser_id());
 			if (r.getParent_reply_num() != -1 && !r.getUser_id().equals(a.getUser_id())) {
 				a.setUser_id(pReply.getUser_id());
 				a.setAlram_type(2);

@@ -39,7 +39,7 @@
                     data: { reply_num },
                     success: function (response) {
                         alert("댓글이 삭제되었습니다.");
-                        location.href = location.href;
+                        location.href = location.href.split("#")[0];
                     },
                 });
             }
@@ -439,7 +439,7 @@
                                                             title="<a href='${pageContext.request.contextPath}/product/soldout?product_num=${p.product_num}&user_id=${reply.user_id}'>거래완료상대</a>"
                                                         >
                                                     </c:if>
-                                                    ${reply.member.user_nickname} (${reply.user_id})
+                                                    ${c_reply.member.user_nickname} (${c_reply.user_id})
                                                     <c:if test="${p.user_id==sessionScope.user_id && p.product_result != 2}">
                                                         </a>
                                                     </c:if>

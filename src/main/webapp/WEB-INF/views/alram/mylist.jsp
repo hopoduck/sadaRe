@@ -104,7 +104,7 @@
                             <c:choose>
                                 <c:when test="${alram.alram_type==1}">
                                     <span class="fw-bold">
-                                        <c:import url="${pageContext.request.contextPath}/api/product/getName">
+                                        <c:import url="${pageContext.request.contextPath}/api/product/getName" charEncoding="UTF-8">
                                             <c:param name="product_num" value="${alram.product_num}"></c:param>
                                         </c:import>
                                         제품</span
@@ -113,7 +113,7 @@
                                 </c:when>
                                 <c:when test="${alram.alram_type==2}">
                                     <span class="fw-bold">
-                                        <c:import url="${pageContext.request.contextPath}/api/product/getName">
+                                        <c:import url="${pageContext.request.contextPath}/api/product/getName" charEncoding="UTF-8">
                                             <c:param name="product_num" value="${alram.product_num}"></c:param>
                                         </c:import>
                                         제품</span
@@ -122,7 +122,7 @@
                                 </c:when>
                                 <c:when test="${alram.alram_type==3}">
                                     <span class="fw-bold">
-                                        <c:import url="${pageContext.request.contextPath}/api/product/getName">
+                                        <c:import url="${pageContext.request.contextPath}/api/product/getName" charEncoding="UTF-8">
                                             <c:param name="product_num" value="${alram.product_num}"></c:param>
                                         </c:import>
                                         제품</span
@@ -131,7 +131,7 @@
                                 </c:when>
                                 <c:when test="${alram.alram_type==4}">
                                     <span class="fw-bold">
-                                        <c:import url="${pageContext.request.contextPath}/api/product/getName">
+                                        <c:import url="${pageContext.request.contextPath}/api/product/getName" charEncoding="UTF-8">
                                             <c:param name="product_num" value="${alram.product_num}"></c:param>
                                         </c:import>
                                         제품</span
@@ -140,7 +140,7 @@
                                 </c:when>
                                 <c:when test="${alram.alram_type==5}">
                                     <span class="fw-bold">
-                                        <c:import url="${pageContext.request.contextPath}/api/product/getName">
+                                        <c:import url="${pageContext.request.contextPath}/api/product/getName" charEncoding="UTF-8">
                                             <c:param name="product_num" value="${alram.product_num}"></c:param>
                                         </c:import>
                                         제품</span
@@ -149,7 +149,7 @@
                                 </c:when>
                                 <c:when test="${alram.alram_type==6}">
                                     <span class="fw-bold">
-                                        <c:import url="${pageContext.request.contextPath}/api/product/getName">
+                                        <c:import url="${pageContext.request.contextPath}/api/product/getName" charEncoding="UTF-8">
                                             <c:param name="product_num" value="${alram.product_num}"></c:param>
                                         </c:import>
                                         제품</span

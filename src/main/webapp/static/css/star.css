@@ -6,7 +6,7 @@
 }
 
 div.stars {
-    width: 270px;
+    width: 310px;
     display: inline-block;
 }
 
@@ -26,6 +26,7 @@ input.star:checked ~ label.star:before {
     content: "\f005";
     color: #fd4;
     transition: all 0.25s;
+    font-weight: 900;
 }
 
 input.star-5:checked ~ label.star:before {
@@ -42,8 +43,8 @@ label.star:hover {
 }
 
 label.star:before {
-    content: "\f006";
-    font-family: FontAwesome;
+    content: "\f005";
+    font-family: "Font Awesome\ 5 Free";
 }
 
 .rev-box {

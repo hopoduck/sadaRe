@@ -43,7 +43,6 @@
                                 <th>접수 날짜</th>
                                 <th>신고된 아이디</th>
                                 <th>신고 제목</th>
-                                <th>신고된 상품정보</th>
                                 <th>신고자</th>
                             </tr>
                         </thead>
@@ -90,11 +89,6 @@
                                         </div>
                                     </div>
                                     <!-- // Modal -->
-                                </td>
-                                <td>
-                                    <a href="${pageContext.request.contextPath }/product/view?product_num=${report.p.product_num}"
-                                        >${report.p.product_name }</a
-                                    >
                                 </td>
                                 <td>${report.report_writer_id }</td>
                             </tr>

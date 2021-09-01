@@ -136,7 +136,9 @@ public class ProductService {
 //			예약상태 취소 : result == 0
 //			예약상태로 변경 : result == 1
 			a.setAlram_read(0);
-			aService.addAlram(a);
+			if (result != 2) {
+				aService.addAlram(a);
+			}
 		}
 		if (buyer_id != null && result == 2) {
 //			거래 완료상태 : result == 2
